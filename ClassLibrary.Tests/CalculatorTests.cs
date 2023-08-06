@@ -18,6 +18,13 @@ namespace ClassLibrary.Tests
 		[TestCase(null)]
 		[TestCase("")]
 		[TestCase("  ")]
+		[TestCase("a")]
+		[TestCase("aabb")]
+		[TestCase("=")]
+		[TestCase("+")]
+		[TestCase("-")]
+		[TestCase("35.21a")]
+		[TestCase("a123")]
 		public void ThrowsExceptionWhenExpressionIsNull(string expression)
 		{
 			_expression = expression;
