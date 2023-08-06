@@ -29,7 +29,20 @@ namespace ClassLibrary.Tests
 				.Throw<ArgumentException>();
 		}
 
-		private decimal CallCalculate()
+		[TestCase("3", 3)]
+		[TestCase("3.5", 3.5)]
+		public void ReturnsExpectedCalculatedExpression(string expression, double expectedResult)
+		{
+			_expression = expression;
+
+			var result = CallCalculate();
+
+			result
+				.Should()
+				.Be(expectedResult);
+		}
+
+		private double CallCalculate()
 		{
 			var sut = Create();
 

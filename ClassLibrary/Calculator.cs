@@ -2,7 +2,7 @@
 {
 	public class Calculator
 	{
-		public decimal Calculate(string expression)
+		public double Calculate(string expression)
 		{
 			if (string.IsNullOrWhiteSpace(expression))
 			{
