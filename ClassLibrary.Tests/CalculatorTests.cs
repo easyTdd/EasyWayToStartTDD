@@ -15,10 +15,12 @@ namespace ClassLibrary.Tests
 			_expression = string.Empty;
 		}
 
-		[Test]
-		public void ThrowsExceptionWhenExpressionIsNull()
+		[TestCase(null)]
+		[TestCase("")]
+		[TestCase("  ")]
+		public void ThrowsExceptionWhenExpressionIsNull(string expression)
 		{
-			_expression = null;
+			_expression = expression;
 
 			Action action = () => CallCalculate();
 
