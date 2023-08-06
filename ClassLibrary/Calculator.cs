@@ -4,7 +4,7 @@
 	{
 		public decimal Calculate(string expression)
 		{
-			if (expression == null)
+			if (string.IsNullOrWhiteSpace(expression))
 			{
 				throw new ArgumentNullException(nameof(expression));
 			}
