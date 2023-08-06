@@ -12,7 +12,7 @@ namespace ClassLibrary
 				throw new ArgumentNullException(nameof(expression));
 			}
 
-			var regex = new Regex(@"^\d+(.\d+)?$");
+			var regex = new Regex(@"^\d+(\.\d+)?$");
 
 			if (!regex.IsMatch(expression))
 			{
