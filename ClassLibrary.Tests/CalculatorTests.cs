@@ -1,6 +1,5 @@
 ﻿using ClassLibrary;
 using FluentAssertions;
-using Moq;
 using NUnit.Framework;
 using System;
 
@@ -14,6 +13,18 @@ namespace ClassLibrary.Tests
 		public void Setup()
 		{
 			_expression = string.Empty;
+		}
+
+		[Test]
+		public void ThrowsExceptionWhenExpressionIsNull()
+		{
+			_expression = null;
+
+			Action action = () => CallCalculate();
+
+			action
+				.Should()
+				.Throw<ArgumentException>();
 		}
 
 		private decimal CallCalculate()
