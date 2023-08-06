@@ -1,4 +1,6 @@
-﻿namespace ClassLibrary
+﻿using System.Globalization;
+
+namespace ClassLibrary
 {
 	public class Calculator
 	{
@@ -9,7 +11,7 @@
 				throw new ArgumentNullException(nameof(expression));
 			}
 
-			throw new NotImplementedException();
+			return double.Parse(expression, CultureInfo.InvariantCulture);
 		}
 	}
 }
