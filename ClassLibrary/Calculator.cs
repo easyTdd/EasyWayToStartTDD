@@ -12,14 +12,28 @@ namespace ClassLibrary
 				throw new ArgumentNullException(nameof(expression));
 			}
 
-			var regex = new Regex(@"^\d+(\.\d+)?$");
+			var regex = new Regex(@"^\d+(\.\d+)?((\+)\d+(\.\d+)?)*$");
 
 			if (!regex.IsMatch(expression))
 			{
 				throw new ArgumentException($"'{expression}' is not valid expression.");
 			}
 
-			return double.Parse(expression, CultureInfo.InvariantCulture);
+			var tokens = Regex.Matches(expression, @"(\d+(\.\d+)?)|(\+)");
+
+			if (tokens.Count == 1)
+			{
+				return double.Parse(tokens[0].Value, CultureInfo.InvariantCulture);
+			}
+
+			var result = double.Parse(tokens[0].Value, CultureInfo.InvariantCulture);
+
+			for (var i = 1; i < tokens.Count - 1; i++)
+			{
+				result += double.Parse(tokens[i + 1].Value, CultureInfo.InvariantCulture);
+			}
+
+			return result;
 		}
 	}
 }
