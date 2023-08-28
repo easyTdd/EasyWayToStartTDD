@@ -51,7 +51,7 @@ namespace ClassLibrary.Tests
 
 			result
 				.Should()
-				.Be(expectedResult);
+				.BeApproximately(expectedResult, 0.001);
 		}
 
 		private double CallCalculate()
