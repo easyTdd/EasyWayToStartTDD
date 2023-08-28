@@ -43,6 +43,7 @@ namespace ClassLibrary.Tests
 		[TestCase("2.5+2.8", 5.3)]
 		[TestCase("2.5-2", 0.5)]
 		[TestCase("2.5-2.8", -0.3)]
+		[TestCase("10+20-5.5+8-3+2.8", 32.3)]
 		public void ReturnsExpectedCalculatedExpression(string expression, double expectedResult)
 		{
 			_expression = expression;
