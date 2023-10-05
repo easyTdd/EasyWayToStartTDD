@@ -25,7 +25,7 @@ namespace ClassLibrary.Tests
 		[TestCase("-")]
 		[TestCase("35.21a")]
 		[TestCase("a123")]
-		public void ThrowsExceptionWhenExpressionIsNull(string expression)
+		public void ThrowsExceptionWhenExpressionIsInvalid(string expression)
 		{
 			_expression = expression;
 
