@@ -28,7 +28,7 @@ namespace ClassLibrary
 
 			var result = double.Parse(tokens[0].Value, CultureInfo.InvariantCulture);
 
-			for (var i = 1; i < tokens.Count - 1; i++)
+			for (var i = 1; i < tokens.Count - 1; i += 2)
 			{
 				if (tokens[i].Value == "+")
 				{
