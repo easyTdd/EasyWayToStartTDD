@@ -23,24 +23,32 @@ namespace ClassLibrary
 
 			if (tokens.Count == 1)
 			{
-				return double.Parse(tokens[0].Value, CultureInfo.InvariantCulture);
+				return ParseDouble(tokens[0]);
 			}
 
-			var result = double.Parse(tokens[0].Value, CultureInfo.InvariantCulture);
+			var result = ParseDouble(tokens[0]);
 
 			for (var i = 1; i < tokens.Count - 1; i += 2)
 			{
 				if (tokens[i].Value == "+")
 				{
-					result += double.Parse(tokens[i + 1].Value, CultureInfo.InvariantCulture);
+					result += ParseDouble(tokens[i + 1]);
 				}
 				else
 				{
-					result -= double.Parse(tokens[i + 1].Value, CultureInfo.InvariantCulture);
+					result -= ParseDouble(tokens[i + 1]);
 				}
 			}
 
 			return result;
+		}
+
+		private double ParseDouble(Match token)
+		{
+			return double.Parse(
+				token.Value, 
+				CultureInfo.InvariantCulture
+			);
 		}
 	}
 }
